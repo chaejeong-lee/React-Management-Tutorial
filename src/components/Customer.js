@@ -5,12 +5,33 @@ class Customer extends React.Component {
     //render는 항상 수행되는 내용 => 실제로 그려지는 내용이 담긴다.
     return (
       <div>
-        <h2>{this.props.name}</h2>
+        <CustomerProfile id={this.props.id} image={this.props.image} name={this.props.name} />
+        <CustomerInfo birthday={this.props.birthday} gender={this.props.gender} job={this.props.job}/>
+      </div>
+    );
+  }
+}
+
+class CustomerProfile extends React.Component{
+  render() {
+    return (
+      <div>
+        <img src={this.props.image} alt="profile" />
+        <h2>{this.props.name}({this.props.id})</h2>
+      </div>
+    );
+  }
+}
+
+class CustomerInfo extends React.Component{
+  render() {
+    return (
+      <div>
         <p>{this.props.birthday}</p>
         <p>{this.props.gender}</p>
         <p>{this.props.job}</p>
       </div>
-    );
+    )
   }
 }
 
